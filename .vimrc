@@ -184,6 +184,10 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 " 選択範囲を S' などで括弧をつける.
 NeoBundle 'tpope/vim-surround'
 
+" markdown
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
 call neobundle#end()
 
 " Required:
@@ -192,3 +196,7 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+" previm
+let g:previm_open_cmd = ''
+let g:previm_show_header = 0
