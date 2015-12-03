@@ -11,18 +11,4 @@
       <autogen>--KeyToKey-- KeyCode::C, VK_CONTROL, KeyCode::C, VK_CONTROL, KeyCode::JIS_EISUU</autogen>
     </item>
   </list>
-  <devicevendordef>
-    <vendorname>ELECOM</vendorname>
-    <vendorid>0x056e</vendorid>
-  </devicevendordef>
-  <deviceproductdef>
-    <productname>M-XT1URBK</productname>
-    <productid>0x00f2</productid>
-  </deviceproductdef>
-  <item>
-    <name>Reverse mouse scroll in ELECOM M-XT1URBK</name>
-    <identifier>private.remap.reverse_mouse_scroll</identifier>
-    <device_only>DeviceVendor::ELECOM, DeviceProduct::M-XT1URBK</device_only>
-    <autogen>__FlipScrollWheel__ Option::FLIPSCROLLWHEEL_VERTICAL</autogen>
-  </item>
 </root>
