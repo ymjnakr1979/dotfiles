@@ -24,7 +24,8 @@ cp ../.gvimrc ~/
 
 # create symbolic link
 if [ -d "${HOME}/Library/Application Support/Karabiner" ]; then
-  ln -s -f "${HOME}/dotfiles/mac/karabiner/private.xml" "${HOME}/Library/Application Support/Karabiner/private.xml"
+  #ln -s -f "${HOME}/dotfiles/mac/karabiner/private.xml" "${HOME}/Library/Application Support/Karabiner/private.xml"
+  cp ./karabiner/private.xml "${HOME}/Library/Application Support/Karabiner"
 fi
 
 # clone NeoBundle
