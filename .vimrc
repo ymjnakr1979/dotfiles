@@ -36,7 +36,7 @@ syntax on
 " edit
 " --------------------------------------------------------------------
 " 日本語の行の連結時には空白を入力しない.
-set formatoptions+=mM
+"set formatoptions+=mM
 
 " バッファ未保存でも他のバッファを開けるように.
 set hidden
@@ -178,8 +178,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'itchyny/lightline.vim'
 
 " 行末の半角スペースを可視化
-"NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'bronson/vim-trailing-whitespace'
+
+" NERDTree
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 " 選択範囲を S' などで括弧をつける.
 NeoBundle 'tpope/vim-surround'
@@ -196,6 +199,10 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+" NERFTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>
 
 " previm
 let g:previm_open_cmd = ''
