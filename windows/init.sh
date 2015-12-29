@@ -14,7 +14,7 @@ mv ~/.gvimrc ${backupDir}/_gvimrc_bak
 mv ~/.vim ${backupDir}/_vim_bak
 
 # copy dotfiles
-cp .bash_profile ~/
+cp ../bash_profile ~/
 mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/backup
 mkdir -p ~/.vim/undo
