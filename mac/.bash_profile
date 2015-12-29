@@ -20,6 +20,9 @@ if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
   source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 fi
 
+# alias
+alias vi=vim
+
 # other settings
 readonly bash_d_path="${HOME}/.bash_d"
 if [ -d "${bash_d_path}" ] ; then
