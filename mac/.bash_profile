@@ -1,6 +1,9 @@
 # path
 export PATH=/usr/local/bin:$PATH
 
+# proxy
+#export https_proxy=""
+
 # terminal
 export TERM=xterm-256color
 
