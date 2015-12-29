@@ -18,14 +18,14 @@ set undodir=$MY_RTDIR/undo
 " --------------------------------------------------------------------
 " file encoding
 " --------------------------------------------------------------------
-"set fileencodings=ucs-bom,utf-8,iso-2022-jp,cp932,euc-jp,default,latin
-
 if has('win32')
   set encoding=utf-8
   set termencoding=cp932
   set fileformat=unix
   set fileformats=unix,dos,mac
 endif
+
+"set fileencodings=ucs-bom,utf-8,iso-2022-jp,cp932,euc-jp,default,latin
 
 " --------------------------------------------------------------------
 " syntax highlighting
@@ -36,7 +36,7 @@ syntax on
 " edit
 " --------------------------------------------------------------------
 " 日本語の行の連結時には空白を入力しない.
-"set formatoptions+=mM
+set formatoptions+=mM
 
 " バッファ未保存でも他のバッファを開けるように.
 set hidden
@@ -121,23 +121,6 @@ if has('syntax')
 endif
 
 " --------------------------------------------------------------------
-" Visualモードでペーストする際、選択テキストでレジスタを上書きさせない
-" * 複数行のペーストには対応していない *
-" http://gimkondo.blog98.fc2.com/blog-entry-36.html
-" http://qiita.com/hikaruna/items/83c1220eede810bee492
-" --------------------------------------------------------------------
-"function! Put_text_without_override_register()
-"  let is_line_end = virtcol("'>") == virtcol("$") - 1
-"  execute 'normal! gv"_x'
-"  if is_line_end
-"    execute 'normal! p'
-"  else
-"    execute 'normal! P'
-"  endif
-"endfunction
-"xnoremap <silent> p :call Put_text_without_override_register()<CR>
-
-" --------------------------------------------------------------------
 " モードに応じてminttyのカーソル形状を変える
 " http://qiita.com/usamik26/items/f733add9ca910f6c5784
 " --------------------------------------------------------------------
@@ -147,6 +130,11 @@ if has('unix') && !has('mac')
   let &t_EI.="\e[1 q"
   let &t_te.="\e[0 q"
 endif
+
+" --------------------------------------------------------------------
+" changelog.vim
+" --------------------------------------------------------------------
+let g:changelog_username = ""
 
 " --------------------------------------------------------------------
 " NeoBundle
@@ -200,7 +188,7 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-" NERFTree
+" NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 
