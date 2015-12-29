@@ -2,9 +2,9 @@
 <root>
   <list>
     <item>
-      <name>LeaveInsMode with EISUU(Terminal)</name>
+      <name>LeaveInsMode with EISUU(Terminal, MacVim, Atom)</name>
       <identifier>private.app_terminal_esc_with_eisuu</identifier>
-      <only>TERMINAL</only>
+      <only>TERMINAL, VI, Atom</only>
       <autogen>--KeyToKey-- KeyCode::ESCAPE, KeyCode::ESCAPE, KeyCode::JIS_EISUU</autogen>
       <autogen>--KeyToKey-- KeyCode::JIS_BRACKET_LEFT, VK_CONTROL, KeyCode::JIS_BRACKET_LEFT, VK_CONTROL, KeyCode::JIS_EISUU</autogen>
       <autogen>--KeyToKey-- KeyCode::BRACKET_LEFT, VK_CONTROL, KeyCode::BRACKET_LEFT, VK_CONTROL, KeyCode::JIS_EISUU</autogen>
