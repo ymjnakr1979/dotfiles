@@ -24,7 +24,7 @@ fi
 alias vi=vim
 
 # other settings
-readonly bash_d_path="${HOME}/.bash_d"
+readonly bash_d_path="${HOME}/.bash.d"
 if [ -d "${bash_d_path}" ] ; then
   files="${bash_d_path}/*.sh"
   for file in ${files} ; do
