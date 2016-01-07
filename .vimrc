@@ -25,7 +25,9 @@ if has('win32')
   set fileformats=unix,dos,mac
 endif
 
-"set fileencodings=ucs-bom,utf-8,iso-2022-jp,cp932,euc-jp,default,latin
+if !has('kaoriya')
+  set fileencodings=ucs-bom,utf-8,iso-2022-jp,cp932,euc-jp,default,latin
+endif
 
 " --------------------------------------------------------------------
 " edit
