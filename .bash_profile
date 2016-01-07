@@ -5,6 +5,8 @@ export TERM=xterm-256color
 
 readonly kPlatform="$(uname -s)"
 if [ ${kPlatform} = 'Darwin' ] ; then
+  echo 'loading "Darwin" settings ...'
+
   # path
   export PATH=/usr/local/bin:$PATH
 
@@ -23,16 +25,15 @@ if [ ${kPlatform} = 'Darwin' ] ; then
   if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
     source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
   fi
-
-  echo 'load "Darwin" settings.'
 elif [ "$(expr substr ${kPlatform} 1 10)" == 'MINGW32_NT' ] ; then
-  echo 'load "MINGW32_NT" settings.'
+  echo 'loading "MINGW32_NT" settings ...'
+
 elif [ "$(expr substr ${kPlatform} 1 10)" == 'MINGW64_NT' ] ; then
+  echo 'loading "MINGW64_NT" settings ...'
+
   # aliases
   alias vi=vim
   alias ls='ls --show-control-chars --color'
-
-  echo 'load "MINGW64_NT" settings.'
 fi
 
 # other settings
@@ -40,6 +41,9 @@ readonly bash_d_path="${HOME}/.bash.d"
 if [ -d "${bash_d_path}" ] ; then
   files="${bash_d_path}/*.sh"
   for file in ${files} ; do
+    echo "loading \"${file}\" ..."
     . "${file}"
   done
 fi
+
+echo 'done.'
