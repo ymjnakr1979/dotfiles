@@ -8,7 +8,11 @@ if [ ${kPlatform} = 'Darwin' ] ; then
   echo 'loading "Darwin" settings ...'
 
   # path
-  export PATH=/usr/local/bin:$PATH
+  if [ -d '/Applications/MacVim.app/Contents/MacOS' ] ; then
+    export PATH=/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:${PATH}
+  else
+    export PATH=/usr/local/bin:$PATH
+  fi
 
   # bash-completion
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
