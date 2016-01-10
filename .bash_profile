@@ -1,11 +1,11 @@
-# vim:set ts=2 sts=2 sw=2 tw=0 et:
+# vim: set ts=2 sts=2 sw=2 tw=0 et:
 
 # terminal
 export TERM=xterm-256color
 
 readonly kPlatform="$(uname -s)"
 if [ ${kPlatform} = 'Darwin' ] ; then
-  echo 'loading "Darwin" settings ...'
+  # echo 'loading "Darwin" settings ...'
 
   # path
   if [ -d '/Applications/MacVim.app/Contents/MacOS' ] ; then
@@ -29,11 +29,10 @@ if [ ${kPlatform} = 'Darwin' ] ; then
   if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
     source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
   fi
-elif [ "$(expr substr ${kPlatform} 1 10)" == 'MINGW32_NT' ] ; then
-  echo 'loading "MINGW32_NT" settings ...'
-
+# elif [ "$(expr substr ${kPlatform} 1 10)" == 'MINGW32_NT' ] ; then
+  # echo 'loading "MINGW32_NT" settings ...'
 elif [ "$(expr substr ${kPlatform} 1 10)" == 'MINGW64_NT' ] ; then
-  echo 'loading "MINGW64_NT" settings ...'
+  # echo 'loading "MINGW64_NT" settings ...'
 
   # aliases
   alias vi=vim
@@ -45,9 +44,11 @@ readonly bash_d_path="${HOME}/.bash.d"
 if [ -d "${bash_d_path}" ] ; then
   files="${bash_d_path}/*.sh"
   for file in ${files} ; do
-    echo "loading \"${file}\" ..."
-    . "${file}"
+    if [ -f "${file}" ] ; then
+      # echo "loading \"${file}\" ..."
+      . "${file}"
+    fi
   done
 fi
 
-echo 'done.'
+# echo 'done.'
