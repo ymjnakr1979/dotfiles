@@ -16,6 +16,66 @@ set undofile
 set undodir=$MY_RTDIR/undo
 
 " --------------------------------------------------------------------
+" NeoBundle
+" --------------------------------------------------------------------
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+let $MY_BUNDLEDIR = $MY_RTDIR.'/bundle'
+
+if has('vim_starting')
+  set nocompatible               " Be iMproved
+
+  " Required:
+  set runtimepath+=$MY_BUNDLEDIR/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand($MY_BUNDLEDIR))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+" ステータスラインを豪華に.
+NeoBundle 'itchyny/lightline.vim'
+
+" 行末の半角スペースを可視化
+NeoBundle 'bronson/vim-trailing-whitespace'
+
+" NERDTree
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+
+" 選択範囲を S' などで括弧をつける.
+NeoBundle 'tpope/vim-surround'
+
+" markdown
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+" NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>
+
+" previm
+let g:previm_open_cmd = ''
+let g:previm_show_header = 0
+
+" --------------------------------------------------------------------
 " file encoding
 " --------------------------------------------------------------------
 if has('win32')
@@ -133,66 +193,6 @@ endif
 " --------------------------------------------------------------------
 set runtimepath+=~/.vim
 runtime! ../.vimrc.d/*.vim
-
-" --------------------------------------------------------------------
-" NeoBundle
-" --------------------------------------------------------------------
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
-let $MY_BUNDLEDIR = $MY_RTDIR.'/bundle'
-
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=$MY_BUNDLEDIR/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand($MY_BUNDLEDIR))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-" ステータスラインを豪華に.
-NeoBundle 'itchyny/lightline.vim'
-
-" 行末の半角スペースを可視化
-NeoBundle 'bronson/vim-trailing-whitespace'
-
-" NERDTree
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-
-" 選択範囲を S' などで括弧をつける.
-NeoBundle 'tpope/vim-surround'
-
-" markdown
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
-" NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <C-n> :NERDTreeToggle<CR>
-
-" previm
-let g:previm_open_cmd = ''
-let g:previm_show_header = 0
 
 " --------------------------------------------------------------------
 " syntax highlighting
