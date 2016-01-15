@@ -58,6 +58,9 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
+" 一括置換時に対象文字列をハイライト/プレビュー.
+NeoBundle 'osyo-manga/vim-over'
+
 call neobundle#end()
 
 " Required:
@@ -153,12 +156,6 @@ set cmdheight=2
 set laststatus=2
 set ruler
 "set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %l/%L
-
-" --------------------------------------------------------------------
-" key remapping
-" --------------------------------------------------------------------
-" ; を : にリマップ.
-nnoremap ; :
 
 " --------------------------------------------------------------------
 " 全角スペースの表示
