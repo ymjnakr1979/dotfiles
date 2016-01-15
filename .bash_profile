@@ -31,12 +31,8 @@ if [ ${kPlatform} = 'Darwin' ] ; then
   fi
 # elif [ "$(expr substr ${kPlatform} 1 10)" == 'MINGW32_NT' ] ; then
   # echo 'loading "MINGW32_NT" settings ...'
-elif [ "$(expr substr ${kPlatform} 1 10)" == 'MINGW64_NT' ] ; then
-  # echo 'loading "MINGW64_NT" settings ...'
-
-  # aliases
-  alias vi=vim
-  alias ls='ls --show-control-chars --color'
+#elif [ "$(expr substr ${kPlatform} 1 10)" == 'MINGW64_NT' ] ; then
+#  # echo 'loading "MINGW64_NT" settings ...'
 fi
 
 # other settings
