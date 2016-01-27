@@ -178,12 +178,12 @@ endif
 " モードに応じてminttyのカーソル形状を変える
 " http://qiita.com/usamik26/items/f733add9ca910f6c5784
 " --------------------------------------------------------------------
-if has('unix') && !has('mac')
-  let &t_ti.="\e[1 q"
-  let &t_SI.="\e[5 q"
-  let &t_EI.="\e[1 q"
-  let &t_te.="\e[0 q"
-endif
+"if has('unix') && !has('mac')
+"  let &t_ti.="\e[1 q"
+"  let &t_SI.="\e[5 q"
+"  let &t_EI.="\e[1 q"
+"  let &t_te.="\e[0 q"
+"endif
 
 " --------------------------------------------------------------------
 " other settings
