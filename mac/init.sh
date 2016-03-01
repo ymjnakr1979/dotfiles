@@ -18,7 +18,8 @@ cp ../.bash_profile ~/
 mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/backup
 mkdir -p ~/.vim/undo
-mkdir -p ~/.vim/bundle
+#mkdir -p ~/.vim/bundle
+mkdir -p ~/.vim/dein
 cp ../.vimrc ~/
 cp ../.gvimrc ~/
 
@@ -29,4 +30,9 @@ if [ -d "${HOME}/Library/Application Support/Karabiner" ]; then
 fi
 
 # clone NeoBundle
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+#git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+
+# install dein.vim
+cd ~/.vim/dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh .

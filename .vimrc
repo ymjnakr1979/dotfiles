@@ -16,60 +16,60 @@ set undofile
 set undodir=$MY_RTDIR/undo
 
 " --------------------------------------------------------------------
-" NeoBundle
+" dein
 " --------------------------------------------------------------------
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
-let $MY_BUNDLEDIR = $MY_RTDIR.'/bundle'
-
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=$MY_BUNDLEDIR/neobundle.vim/
-endif
+"if &compatible
+"  set nocompatible               " Be iMproved
+"endif
 
 " Required:
-call neobundle#begin(expand($MY_BUNDLEDIR))
+set runtimepath^=$MY_RTDIR/dein/repos/github.com/Shougo/dein.vim
 
-" Let NeoBundle manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#begin(expand('$MY_RTDIR/dein'))
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
 
-" ステータスラインを豪華に.
-NeoBundle 'itchyny/lightline.vim'
+" Add or remove your plugins here:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
 
-" 行末の半角スペースを可視化
-NeoBundle 'bronson/vim-trailing-whitespace'
+call dein#add('itchyny/lightline.vim')
+call dein#add('bronson/vim-trailing-whitespace')
 
 " NERDTree
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+call dein#add('scrooloose/nerdtree')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
 
 " 選択範囲を S' などで括弧をつける.
-NeoBundle 'tpope/vim-surround'
+call dein#add('tpope/vim-surround')
 
 " markdown
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
+call dein#add('kannokanno/previm')
+call dein#add('tyru/open-browser.vim')
 
 " 一括置換時に対象文字列をハイライト/プレビュー.
-NeoBundle 'osyo-manga/vim-over'
+call dein#add('osyo-manga/vim-over')
 
-call neobundle#end()
+" You can specify revision/branch/tag.
+"call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+
+" Required:
+call dein#end()
 
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
+" --------------------------------------------------------------------
+" plugin settings
+" --------------------------------------------------------------------
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
