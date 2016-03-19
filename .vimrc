@@ -53,6 +53,9 @@ call dein#add('tyru/open-browser.vim')
 " 一括置換時に対象文字列をハイライト/プレビュー.
 call dein#add('osyo-manga/vim-over')
 
+" solarized
+call dein#add('altercation/vim-colors-solarized')
+
 " You can specify revision/branch/tag.
 "call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -195,3 +198,5 @@ runtime! ../.vimrc.d/*.vim
 " syntax highlighting
 " --------------------------------------------------------------------
 syntax on
+set background=light
+colorscheme solarized
