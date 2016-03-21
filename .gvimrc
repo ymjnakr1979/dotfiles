@@ -3,7 +3,7 @@ scriptencoding utf-8
 " --------------------------------------------------------------------
 " メニューの文字化け解消.
 " --------------------------------------------------------------------
-if has('win32')"
+if has('win32')
   source $VIMRUNTIME/delmenu.vim
   set langmenu=ja_JP.utf-8
   source $VIMRUNTIME/menu.vim
@@ -51,9 +51,20 @@ elseif has('mac')
   set guifontwide=Menlo\ Regular:h11
 endif
 
-"----------------------------------------
+" --------------------------------------------------------------------
+" color scheme
+" --------------------------------------------------------------------
+try
+  colorscheme solarized
+  set background=dark
+catch
+  colorscheme default
+  set background=light
+endtry
+
+" --------------------------------------------------------------------
 " IME
-"----------------------------------------
+" --------------------------------------------------------------------
 if has('multi_byte_ime') || has('xim')
   set iminsert=0 imsearch=0
   if has('xim') && has('GUI_GTK')
@@ -68,17 +79,6 @@ if has('multi_byte_ime') || has('xim')
     set noimdisableactivate
   endif
 endif
-
-" --------------------------------------------------------------------
-" color scheme
-" --------------------------------------------------------------------
-try
-  colorscheme solarized
-  set background=dark
-catch
-  colorscheme default
-  set background=light
-endtry
 
 " --------------------------------------------------------------------
 " vim: set ts=2 sts=2 sw=2 tw=0 et:
