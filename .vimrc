@@ -209,10 +209,6 @@ syntax on
 " color scheme
 " --------------------------------------------------------------------
 try
-  if !has('mac')
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-  endif
   colorscheme solarized
   set background=dark
 catch
