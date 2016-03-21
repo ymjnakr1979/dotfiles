@@ -1,5 +1,4 @@
 scriptencoding utf-8
-" vim: set ts=2 sts=2 sw=2 tw=0 et:
 
 " --------------------------------------------------------------------
 " メニューの文字化け解消.
@@ -20,7 +19,9 @@ set guioptions-=T
 set visualbell
 set t_vb=
 
+" --------------------------------------------------------------------
 " ウィンドウサイズ復元.
+" --------------------------------------------------------------------
 let g:save_window_file = expand('~/.vimwinpos')
 augroup SaveWindow
   autocmd!
@@ -38,13 +39,6 @@ augroup END
 if filereadable(g:save_window_file)
   execute 'source' g:save_window_file
 endif
-
-" --------------------------------------------------------------------
-" colorscheme
-" --------------------------------------------------------------------
-colorscheme default
-set background=light
-colorscheme solarized
 
 " --------------------------------------------------------------------
 " font
@@ -74,3 +68,17 @@ if has('multi_byte_ime') || has('xim')
     set noimdisableactivate
   endif
 endif
+
+" --------------------------------------------------------------------
+" color scheme
+" --------------------------------------------------------------------
+try
+  colorscheme solarized
+  set background=dark
+catch
+  colorscheme default
+  set background=light
+endtry
+
+" --------------------------------------------------------------------
+" vim: set ts=2 sts=2 sw=2 tw=0 et:
