@@ -54,13 +54,8 @@ endif
 " --------------------------------------------------------------------
 " color scheme
 " --------------------------------------------------------------------
-try
-  colorscheme solarized
-  set background=dark
-catch
-  colorscheme default
-  set background=light
-endtry
+colorscheme default
+set background=light
 
 " --------------------------------------------------------------------
 " IME

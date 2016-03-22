@@ -53,7 +53,7 @@ call dein#add('tyru/open-browser.vim')
 call dein#add('osyo-manga/vim-over')
 
 " solarized
-call dein#add('altercation/vim-colors-solarized')
+"call dein#add('altercation/vim-colors-solarized')
 
 " You can specify revision/branch/tag.
 "call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -208,13 +208,8 @@ syntax on
 " --------------------------------------------------------------------
 " color scheme
 " --------------------------------------------------------------------
-try
-  colorscheme solarized
-  set background=dark
-catch
-  colorscheme default
-  set background=light
-endtry
+colorscheme default
+"set background=light
 
 " --------------------------------------------------------------------
 " other settings
