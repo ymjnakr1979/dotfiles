@@ -15,59 +15,83 @@ set undofile
 set undodir=$MY_RTDIR/undo
 
 " --------------------------------------------------------------------
-" dein
+" vim-plug
 " --------------------------------------------------------------------
-"if &compatible
-"  set nocompatible               " Be iMproved
-"endif
+call plug#begin(expand('$MY_RTDIR/plugged'))
 
-" Required:
-set runtimepath^=$MY_RTDIR/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-call dein#begin(expand('$MY_RTDIR/dein'))
-
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
-
-" Add or remove your plugins here:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
-
-call dein#add('itchyny/lightline.vim')
-call dein#add('bronson/vim-trailing-whitespace')
+Plug 'itchyny/lightline.vim'
+Plug 'bronson/vim-trailing-whitespace'
 
 " NERDTree
-call dein#add('scrooloose/nerdtree')
-call dein#add('Xuyuanp/nerdtree-git-plugin')
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " 選択範囲を S' などで括弧をつける.
-call dein#add('tpope/vim-surround')
+Plug 'tpope/vim-surround'
 
 " markdown
-call dein#add('kannokanno/previm')
-call dein#add('tyru/open-browser.vim')
+Plug 'kannokanno/previm'
+Plug 'tyru/open-browser.vim'
 
 " 一括置換時に対象文字列をハイライト/プレビュー.
-call dein#add('osyo-manga/vim-over')
+Plug 'osyo-manga/vim-over'
 
-" solarized
-"call dein#add('altercation/vim-colors-solarized')
+call plug#end()
 
-" You can specify revision/branch/tag.
-"call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-
-" Required:
-call dein#end()
-
-" Required:
-filetype plugin indent on
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+" --------------------------------------------------------------------
+" dein
+" --------------------------------------------------------------------
+""if &compatible
+""  set nocompatible               " Be iMproved
+""endif
+"
+"" Required:
+"set runtimepath^=$MY_RTDIR/dein/repos/github.com/Shougo/dein.vim
+"
+"" Required:
+"call dein#begin(expand('$MY_RTDIR/dein'))
+"
+"" Let dein manage dein
+"" Required:
+"call dein#add('Shougo/dein.vim')
+"
+"" Add or remove your plugins here:
+""call dein#add('Shougo/neosnippet.vim')
+""call dein#add('Shougo/neosnippet-snippets')
+"
+"call dein#add('itchyny/lightline.vim')
+"call dein#add('bronson/vim-trailing-whitespace')
+"
+"" NERDTree
+"call dein#add('scrooloose/nerdtree')
+"call dein#add('Xuyuanp/nerdtree-git-plugin')
+"
+"" 選択範囲を S' などで括弧をつける.
+"call dein#add('tpope/vim-surround')
+"
+"" markdown
+"call dein#add('kannokanno/previm')
+"call dein#add('tyru/open-browser.vim')
+"
+"" 一括置換時に対象文字列をハイライト/プレビュー.
+"call dein#add('osyo-manga/vim-over')
+"
+"" solarized
+""call dein#add('altercation/vim-colors-solarized')
+"
+"" You can specify revision/branch/tag.
+""call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+"
+"" Required:
+"call dein#end()
+"
+"" Required:
+"filetype plugin indent on
+"
+"" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
 
 " --------------------------------------------------------------------
 " plugin settings
