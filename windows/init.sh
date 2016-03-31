@@ -20,6 +20,7 @@ mkdir -p ~/.vim/backup
 mkdir -p ~/.vim/undo
 #mkdir -p ~/.vim/bundle
 #mkdir -p ~/.vim/dein
+mkdir -p ~/.vim/autoload
 mkdir -p ~/.vim/plugged
 cp ../.vimrc ~/
 cp ../.gvimrc ~/
