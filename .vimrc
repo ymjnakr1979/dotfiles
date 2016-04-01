@@ -6,6 +6,7 @@ if !1 | finish | endif
 " directories
 " --------------------------------------------------------------------
 let $MY_RTDIR = $HOME.'/.vim'
+set runtimepath^=$MY_RTDIR
 
 set swapfile
 set dir=$MY_RTDIR/swap
