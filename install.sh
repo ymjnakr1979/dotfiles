@@ -14,29 +14,19 @@ mv ~/.gvimrc ${backupDir}/_gvimrc_bak
 mv ~/.vim ${backupDir}/_vim_bak
 
 # copy dotfiles
-cp ../.bash_profile ~/
+cp .bash_profile ~/
 mkdir -p ~/.vim/swap
 mkdir -p ~/.vim/backup
 mkdir -p ~/.vim/undo
-#mkdir -p ~/.vim/bundle
-#mkdir -p ~/.vim/dein
 mkdir -p ~/.vim/plugged
-cp ../.vimrc ~/
-cp ../.gvimrc ~/
+mkdir -p ~/.vim/autoload
+cp .vimrc ~/
+cp .gvimrc ~/
 
 # create symbolic link
 if [ -d "${HOME}/Library/Application Support/Karabiner" ]; then
-  #ln -s -f "${HOME}/dotfiles/mac/karabiner/private.xml" "${HOME}/Library/Application Support/Karabiner/private.xml"
-  cp ./karabiner/private.xml "${HOME}/Library/Application Support/Karabiner"
+  cp ./mac/karabiner/private.xml "${HOME}/Library/Application Support/Karabiner"
 fi
-
-# clone NeoBundle
-#git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-
-# install dein.vim
-#cd ~/.vim/dein
-#curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-#sh ./installer.sh .
 
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
