@@ -18,7 +18,7 @@ set undodir=$MY_RTDIR/undo
 " --------------------------------------------------------------------
 " vim-plug
 " --------------------------------------------------------------------
-call plug#begin(expand('$MY_RTDIR/plugged'))
+silent! call plug#begin(expand('$MY_RTDIR/plugged'))
 
 Plug 'itchyny/lightline.vim'
 Plug 'bronson/vim-trailing-whitespace'
