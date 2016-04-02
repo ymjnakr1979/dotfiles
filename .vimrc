@@ -180,7 +180,9 @@ endif
 " color scheme
 " --------------------------------------------------------------------
 colorscheme default
-"set background=light
+if !has('mac')
+  set background=dark
+endif
 
 " --------------------------------------------------------------------
 " syntax highlighting
