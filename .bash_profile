@@ -1,25 +1,31 @@
-# vim: set ts=2 sts=2 sw=2 tw=0 et:
-
+# --------------------------------------------------------------------
 # terminal
+# --------------------------------------------------------------------
 export TERM=xterm-256color
 
 readonly kPlatform="$(uname -s)"
 if [ ${kPlatform} = 'Darwin' ] ; then
   # echo 'loading "Darwin" settings ...'
 
+  # ------------------------------------------------------------------
   # path
+  # ------------------------------------------------------------------
   if [ -d '/Applications/MacVim.app/Contents/MacOS' ] ; then
     export PATH=/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:${PATH}
   else
     export PATH=/usr/local/bin:$PATH
   fi
 
+  # ------------------------------------------------------------------
   # bash-completion
+  # ------------------------------------------------------------------
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
 
+  # ------------------------------------------------------------------
   # git-completion
+  # ------------------------------------------------------------------
   if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
     source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=true
@@ -35,7 +41,9 @@ if [ ${kPlatform} = 'Darwin' ] ; then
 #  # echo 'loading "MINGW64_NT" settings ...'
 fi
 
-# other settings
+# --------------------------------------------------------------------
+# others
+# --------------------------------------------------------------------
 readonly bash_d_path="${HOME}/.bash.d"
 if [ -d "${bash_d_path}" ] ; then
   files="${bash_d_path}/*.sh"
@@ -48,3 +56,6 @@ if [ -d "${bash_d_path}" ] ; then
 fi
 
 # echo 'done.'
+
+# --------------------------------------------------------------------
+# vim: set ts=2 sts=2 sw=2 tw=0 et:

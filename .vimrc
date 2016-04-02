@@ -3,7 +3,7 @@ scriptencoding utf-8
 if !1 | finish | endif
 
 " --------------------------------------------------------------------
-" directories
+" directory
 " --------------------------------------------------------------------
 let $MY_RTDIR = $HOME.'/.vim'
 set runtimepath^=$MY_RTDIR
@@ -40,66 +40,20 @@ Plug 'osyo-manga/vim-over'
 call plug#end()
 
 " --------------------------------------------------------------------
-" dein
-" --------------------------------------------------------------------
-""if &compatible
-""  set nocompatible               " Be iMproved
-""endif
-"
-"" Required:
-"set runtimepath^=$MY_RTDIR/dein/repos/github.com/Shougo/dein.vim
-"
-"" Required:
-"call dein#begin(expand('$MY_RTDIR/dein'))
-"
-"" Let dein manage dein
-"" Required:
-"call dein#add('Shougo/dein.vim')
-"
-"" Add or remove your plugins here:
-""call dein#add('Shougo/neosnippet.vim')
-""call dein#add('Shougo/neosnippet-snippets')
-"
-"call dein#add('itchyny/lightline.vim')
-"call dein#add('bronson/vim-trailing-whitespace')
-"
-"" NERDTree
-"call dein#add('scrooloose/nerdtree')
-"call dein#add('Xuyuanp/nerdtree-git-plugin')
-"
-"" 選択範囲を S' などで括弧をつける.
-"call dein#add('tpope/vim-surround')
-"
-"" markdown
-"call dein#add('kannokanno/previm')
-"call dein#add('tyru/open-browser.vim')
-"
-"" 一括置換時に対象文字列をハイライト/プレビュー.
-"call dein#add('osyo-manga/vim-over')
-"
-"" solarized
-""call dein#add('altercation/vim-colors-solarized')
-"
-"" You can specify revision/branch/tag.
-""call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-"
-"" Required:
-"call dein#end()
-"
-"" Required:
-"filetype plugin indent on
-"
-"" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-
-" --------------------------------------------------------------------
 " plugin settings
 " --------------------------------------------------------------------
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
+nnoremap <silent><C-\> :NERDTreeToggle<CR>
+
+" netrw
+" netrwは常にtree view
+let g:netrw_liststyle = 3
+" 'v'でファイルを開くときは右側に開く.
+let g:netrw_altv = 1
+" 'o'でファイルを開くときは下側に開く.
+let g:netrw_alto = 1
 
 " previm
 let g:previm_open_cmd = ''
@@ -176,13 +130,15 @@ set matchtime=1
 set wrap
 set iminsert=0
 " 記号表示でカーソル位置がずれないようにする.
-set ambiwidth=double
+if exists('&ambiwidth')
+  set ambiwidth=double
+endif
 " Windowsのパス区切りに/を使えるようにする.
 set shellslash
 set cmdheight=2
 set laststatus=2
 set ruler
-"set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %l/%L
+set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %l/%L
 
 " --------------------------------------------------------------------
 " 全角スペースの表示
@@ -221,9 +177,10 @@ endif
 "endif
 
 " --------------------------------------------------------------------
-" key mapping
+" color scheme
 " --------------------------------------------------------------------
-nnoremap ; :
+colorscheme default
+"set background=light
 
 " --------------------------------------------------------------------
 " syntax highlighting
@@ -231,13 +188,12 @@ nnoremap ; :
 syntax on
 
 " --------------------------------------------------------------------
-" color scheme
+" key mapping
 " --------------------------------------------------------------------
-colorscheme default
-"set background=light
+nnoremap ; :
 
 " --------------------------------------------------------------------
-" other settings
+" others
 " --------------------------------------------------------------------
 runtime! ../.vimrc.d/*.vim
 
