@@ -65,8 +65,11 @@ if has('multi_byte_ime') || has('xim')
   if has('xim') && has('GUI_GTK')
     " set imactivatekey=C-Space
   endif
-  highlight Cursor guifg=NONE guibg=Green
-  highlight CursorIM guifg=NONE guibg=Purple
+
+  if has('win32') || has('mac')
+    highlight Cursor guifg=NONE guibg=Green
+    highlight CursorIM guifg=NONE guibg=Purple
+  endif
 
   " モード切替時にIMの有効・無効を記憶する.
   if has('gui_macvim') && has('kaoriya')
