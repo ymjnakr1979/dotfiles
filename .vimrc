@@ -158,23 +158,26 @@ if has('syntax')
 endif
 
 " --------------------------------------------------------------------
-" 80カラムに線を表示する.
+" ノーマルモードに戻る際にIMEをoffにする
 " --------------------------------------------------------------------
-if (exists('+colorcolumn'))
-  set colorcolumn=80
-  highlight ColorColumn ctermbg=9
-endif
+if !has('gui_running')
+  if has('mac')
+    set ttimeoutlen=1
+    let g:imeoff = 'osascript -e "tell application \"System Events\" to keystroke \";\" using {control down, shift down}"'
+  endif
 
-" --------------------------------------------------------------------
-" モードに応じてminttyのカーソル形状を変える
-" http://qiita.com/usamik26/items/f733add9ca910f6c5784
-" --------------------------------------------------------------------
-"if has('unix') && !has('mac')
-"  let &t_ti.="\e[1 q"
-"  let &t_SI.="\e[5 q"
-"  let &t_EI.="\e[1 q"
-"  let &t_te.="\e[0 q"
-"endif
+  if exists('g:imeoff')
+    if has('vim_starting')
+      " vim起動時はIMEをoffにする
+      call system(g:imeoff)
+    endif
+
+    augroup MyIMEGroup
+      autocmd!
+      autocmd InsertLeave * :call system(g:imeoff)
+    augroup END
+  endif
+endif
 
 " --------------------------------------------------------------------
 " syntax highlighting
