@@ -1,6 +1,6 @@
 #!/bin/sh
 
-readonly backupDir="${HOME}/_dotfiles_bak"
+readonly backupDir="${HOME}/dotfiles_bak"
 
 # backup
 if [ -d ${backupDir} ]; then

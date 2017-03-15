@@ -128,7 +128,9 @@ set showmode
 set showmatch
 set matchtime=1
 set wrap
+set noimdisable
 set iminsert=0
+set imsearch=0
 " 記号表示でカーソル位置がずれないようにする.
 if exists('&ambiwidth')
   set ambiwidth=double
@@ -160,23 +162,21 @@ endif
 " --------------------------------------------------------------------
 " ノーマルモードに戻る際にIMEをoffにする
 " --------------------------------------------------------------------
-if !has('gui_running')
-  if has('mac')
-    set ttimeoutlen=1
-    let g:imeoff = 'osascript -e "tell application \"System Events\" to keystroke \";\" using {control down, shift down}"'
+if has('mac')
+  set ttimeoutlen=1
+  let g:imeoff = 'osascript -e "tell application \"System Events\" to keystroke \";\" using {control down, shift down}"'
+endif
+
+if exists('g:imeoff')
+  if has('vim_starting')
+    " vim起動時はIMEをoffにする
+    call system(g:imeoff)
   endif
 
-  if exists('g:imeoff')
-    if has('vim_starting')
-      " vim起動時はIMEをoffにする
-      call system(g:imeoff)
-    endif
-
-    augroup MyIMEGroup
-      autocmd!
-      autocmd InsertLeave * :call system(g:imeoff)
-    augroup END
-  endif
+  augroup MyIMEGroup
+    autocmd!
+    autocmd InsertLeave * :call system(g:imeoff)
+  augroup END
 endif
 
 " --------------------------------------------------------------------

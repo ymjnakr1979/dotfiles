@@ -61,20 +61,15 @@ set background=light
 " IME
 " --------------------------------------------------------------------
 if has('multi_byte_ime') || has('xim')
-  set iminsert=0 imsearch=0
-  if has('xim') && has('GUI_GTK')
-    " set imactivatekey=C-Space
+  " モード切替時にIMの状態を復元しない.
+  if has('gui_macvim') && has('kaoriya')
+    set imdisableactivate
   endif
 
+  " IMの状態に合わせてカーソル色を変更する.
   if has('win32') || has('mac')
     highlight Cursor guifg=NONE guibg=Green
     highlight CursorIM guifg=NONE guibg=Purple
-  endif
-
-  " モード切替時にIMの有効・無効を記憶する.
-  if has('gui_macvim') && has('kaoriya')
-    set noimdisable
-    set noimdisableactivate
   endif
 endif
 
