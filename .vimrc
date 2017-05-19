@@ -168,13 +168,9 @@ if has('mac')
 endif
 
 if exists('g:imeoff')
-  if has('vim_starting')
-    " vim起動時はIMEをoffにする
-    call system(g:imeoff)
-  endif
-
   augroup MyIMEGroup
     autocmd!
+    autocmd VimEnter * :call system(g:imeoff)
     autocmd InsertLeave * :call system(g:imeoff)
   augroup END
 endif
