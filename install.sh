@@ -1,6 +1,6 @@
 #!/bin/sh
 
-readonly backupDir="${HOME}/dotfiles_bak"
+readonly backupDir="${HOME}/dotfiles_bak_`date '+%Y%m%d_%H%M%S'`"
 
 # backup
 if [ -d ${backupDir} ]; then
