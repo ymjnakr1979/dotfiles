@@ -163,14 +163,15 @@ endif
 " ノーマルモードに戻る際にIMEをoffにする
 " --------------------------------------------------------------------
 if has('mac')
+  set ttimeoutlen=1
   let g:imeoff = 'osascript -e "tell application \"System Events\" to keystroke \";\" using {control down, shift down}"'
 endif
 
 if exists('g:imeoff')
-  set ttimeoutlen=1
   augroup MyIMEGroup
     autocmd!
-    autocmd VimEnter,InsertLeave * :call system(g:imeoff)
+    autocmd VimEnter * :call system(g:imeoff)
+    autocmd InsertLeave * :call system(g:imeoff)
   augroup END
 endif
 
