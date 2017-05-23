@@ -170,7 +170,8 @@ if exists('g:imeoff')
   set ttimeoutlen=1
   augroup MyIMEGroup
     autocmd!
-    autocmd VimEnter,InsertLeave * :call system(g:imeoff)
+    autocmd VimEnter * :call system(g:imeoff) | :redraw!
+    autocmd InsertLeave * :call system(g:imeoff)
   augroup END
 endif
 
