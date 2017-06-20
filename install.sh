@@ -1,33 +1,32 @@
 #!/bin/sh
 
-readonly backupDir="${HOME}/dotfiles_bak_`date '+%Y%m%d_%H%M%S'`"
+readonly script_dir=`cd \`dirname "$0"\`; pwd`
+readonly backup_dir="${HOME}/dotfiles_bak_`date '+%Y%m%d_%H%M%S'`"
 
 # backup
-if [ -d ${backupDir} ]; then
-  echo "\"${backupDir}\"\nis already exists."
+if [ -d "${backup_dir}" ]; then
+  echo "\"${backup_dir}\"\nis already exists."
   exit 1
 fi
-mkdir -p "${backupDir}"
-mv ~/.bash_profile ${backupDir}/_bash_profile_bak
-mv ~/.vimrc ${backupDir}/_vimrc_bak
-mv ~/.gvimrc ${backupDir}/_gvimrc_bak
-mv ~/.vim ${backupDir}/_vim_bak
+mkdir -p "${backup_dir}"
+mv "${HOME}/.bash_profile" "${backup_dir}/_bash_profile_bak"
+mv "${HOME}/.vim" "${backup_dir}/_vim_bak"
 
 # copy dotfiles
-cp .bash_profile ~/
-mkdir -p ~/.vim/swap
-mkdir -p ~/.vim/backup
-mkdir -p ~/.vim/undo
-mkdir -p ~/.vim/plugged
-mkdir -p ~/.vim/autoload
-cp .vimrc ~/
-cp .gvimrc ~/
+mkdir -p "${HOME}/.vim/swap"
+mkdir -p "${HOME}/.vim/backup"
+mkdir -p "${HOME}/.vim/undo"
+mkdir -p "${HOME}/.vim/plugged"
+mkdir -p "${HOME}/.vim/autoload"
 
 # create symbolic link
-if [ -d "${HOME}/Library/Application Support/Karabiner" ]; then
-  cp ./mac/karabiner/private.xml "${HOME}/Library/Application Support/Karabiner"
-fi
+ln -fs "${script_dir}/bash_profile" "${HOME}/.bash_profile"
+ln -fs "${script_dir}/vimrc" "${HOME}/.vimrc"
+ln -fs "${script_dir}/gvimrc" "${HOME}/.gvimrc"
 
 # install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo "${HOME}/.vim/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# start vim and install plugins
+vim -c PlugInstall -c q -c q
