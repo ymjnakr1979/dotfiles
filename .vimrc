@@ -163,7 +163,7 @@ endif
 " ノーマルモードに戻る際にIMEをoffにする
 " --------------------------------------------------------------------
 if has('mac')
-  let g:imeoff = 'osascript -e "tell application \"System Events\" to keystroke (key code {102})"'
+  let g:imeoff = 'osascript -e "tell application \"System Events\" to keystroke \";\" using {control down, shift down}"'
 endif
 
 if exists('g:imeoff')
