@@ -10,6 +10,7 @@ if [ -d "${backup_dir}" ]; then
 fi
 mkdir -p "${backup_dir}"
 mv "${HOME}/.bash_profile" "${backup_dir}/_bash_profile_bak"
+mv "${HOME}/.bashrc" "${backup_dir}/_bashrc_bak"
 mv "${HOME}/.vim" "${backup_dir}/_vim_bak"
 
 # copy dotfiles
@@ -21,6 +22,7 @@ mkdir -p "${HOME}/.vim/autoload"
 
 # create symbolic link
 ln -fs "${script_dir}/bash_profile" "${HOME}/.bash_profile"
+ln -fs "${script_dir}/bashrc" "${HOME}/.bashrc"
 ln -fs "${script_dir}/vimrc" "${HOME}/.vimrc"
 ln -fs "${script_dir}/gvimrc" "${HOME}/.gvimrc"
 
