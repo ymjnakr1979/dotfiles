@@ -7,7 +7,7 @@ SetSettingsByPlatform() {
 
     # vim
     # ------------------------------------------------------------------
-    if [ -f '/Applications/MacVim.app/Contents/MacOS/Vim' ] ; then
+    if [ -x '/Applications/MacVim.app/Contents/MacOS/Vim' ] ; then
       alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
       alias vi=vim
     fi

@@ -13,7 +13,7 @@ export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)
 
 # export EDITOR
 if [ "$(uname -s)" = 'Darwin' ] ; then
-  if [ -f '/Applications/MacVim.app/Contents/MacOS/Vim' ] ; then
+  if [ -x '/Applications/MacVim.app/Contents/MacOS/Vim' ] ; then
     export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
   fi
 fi
