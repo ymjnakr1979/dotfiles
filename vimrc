@@ -130,7 +130,7 @@ set matchtime=1
 set wrap
 set noimdisable
 set iminsert=0
-set imsearch=0
+set imsearch=-1
 " 記号表示でカーソル位置がずれないようにする.
 if exists('&ambiwidth')
   set ambiwidth=double
@@ -171,6 +171,7 @@ if exists('g:imeoff')
   augroup MyIMEGroup
     autocmd!
     "autocmd VimEnter * :call system(g:imeoff) | :redraw!
+    autocmd VimEnter * :sleep 1ms | :call system(g:imeoff)
     autocmd InsertLeave * :call system(g:imeoff)
   augroup END
 endif
