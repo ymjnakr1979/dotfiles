@@ -167,6 +167,7 @@ if has('mac')
 endif
 
 if exists('g:imeoff')
+  set ttimeoutlen=1
   augroup MyIMEGroup
     autocmd!
     autocmd VimEnter * :call system(g:imeoff) | :redraw!
