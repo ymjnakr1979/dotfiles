@@ -21,6 +21,7 @@ SetSettingsByPlatform() {
     # git-completion
     # ------------------------------------------------------------------
     if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ] ; then
+      export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\n\$ '
       source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
       GIT_PS1_SHOWDIRTYSTATE=true
     fi
