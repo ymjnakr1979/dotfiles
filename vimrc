@@ -162,18 +162,18 @@ endif
 " --------------------------------------------------------------------
 " ノーマルモードに戻る際にIMEをoffにする
 " --------------------------------------------------------------------
-if has('mac')
-  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
-endif
-
-if exists('g:imeoff')
-  set ttimeoutlen=1
-  augroup MyIMEGroup
-    autocmd!
-    autocmd VimEnter * :call system(g:imeoff) | :redraw!
-    autocmd InsertLeave * :call system(g:imeoff)
-  augroup END
-endif
+"if has('mac')
+"  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
+"endif
+"
+"if exists('g:imeoff')
+"  set ttimeoutlen=1
+"  augroup MyIMEGroup
+"    autocmd!
+"    autocmd VimEnter * :call system(g:imeoff) | :redraw!
+"    autocmd InsertLeave * :call system(g:imeoff)
+"  augroup END
+"endif
 
 " --------------------------------------------------------------------
 " syntax highlighting
