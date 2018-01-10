@@ -22,20 +22,16 @@ silent! call plug#begin(expand('$MY_RTDIR/plugged'))
 
 Plug 'itchyny/lightline.vim'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'tpope/vim-surround'
+Plug 'osyo-manga/vim-over'
 
 " NERDTree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" 選択範囲を S' などで括弧をつける.
-Plug 'tpope/vim-surround'
+"Plug 'scrooloose/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " markdown
-Plug 'kannokanno/previm'
-Plug 'tyru/open-browser.vim'
-
-" 一括置換時に対象文字列をハイライト/プレビュー.
-Plug 'osyo-manga/vim-over'
+"Plug 'kannokanno/previm'
+"Plug 'tyru/open-browser.vim'
 
 call plug#end()
 
@@ -183,8 +179,8 @@ syntax on
 " --------------------------------------------------------------------
 " key mapping
 " --------------------------------------------------------------------
-nnoremap ; :
-vnoremap ; :
+"nnoremap ; :
+"vnoremap ; :
 
 " --------------------------------------------------------------------
 " others
