@@ -1,10 +1,9 @@
 scriptencoding utf-8
+" vim: set ts=2 sts=2 sw=2 tw=0 et:
 
 if !1 | finish | endif
 
-" --------------------------------------------------------------------
-" directory
-" --------------------------------------------------------------------
+" directory {{{
 let $MY_RTDIR = $HOME.'/.vim'
 set runtimepath^=$MY_RTDIR
 
@@ -14,10 +13,9 @@ set backup
 set backupdir=$MY_RTDIR/backup
 set undofile
 set undodir=$MY_RTDIR/undo
+" }}}
 
-" --------------------------------------------------------------------
-" vim-plug
-" --------------------------------------------------------------------
+" vim-plug {{{
 silent! call plug#begin(expand('$MY_RTDIR/plugged'))
 
 Plug 'itchyny/lightline.vim'
@@ -34,10 +32,9 @@ Plug 'osyo-manga/vim-over'
 "Plug 'tyru/open-browser.vim'
 
 call plug#end()
+" }}}
 
-" --------------------------------------------------------------------
-" plugin settings
-" --------------------------------------------------------------------
+" plugin setting {{{
 " NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden = 1
@@ -54,10 +51,9 @@ let g:netrw_alto = 1
 " previm
 let g:previm_open_cmd = ''
 let g:previm_show_header = 0
+" }}}
 
-" --------------------------------------------------------------------
-" file encoding
-" --------------------------------------------------------------------
+" file encoding {{{
 if has('win32')
   set encoding=utf-8
   set termencoding=cp932
@@ -68,55 +64,43 @@ endif
 if !has('kaoriya')
   set fileencodings=ucs-bom,utf-8,iso-2022-jp,cp932,euc-jp,default,latin
 endif
+" }}}
 
-" --------------------------------------------------------------------
-" edit
-" --------------------------------------------------------------------
+" edit {{{
 " 日本語の行の連結時には空白を入力しない.
 set formatoptions+=mM
 
-" バッファ未保存でも他のバッファを開けるように.
 set hidden
-
-" ビープ音無効.
 set visualbell
 set t_vb=
+set clipboard&
+if has('unnamedplus')
+  set clipboard^=unnamedplus
+else
+  set clipboard^=unnamed
+endif
+" }}}
 
-" --------------------------------------------------------------------
-" indent
-" --------------------------------------------------------------------
+" indent {{{
 set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=0
 set expandtab
 set autoindent
 set smartindent
+" }}}
 
-" --------------------------------------------------------------------
-" search
-" --------------------------------------------------------------------
+" search {{{
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
+" }}}
 
-" --------------------------------------------------------------------
-" complement
-" --------------------------------------------------------------------
+" complement {{{
 set wildmenu
 set wildmode=list:longest,full
+" }}}
 
-" --------------------------------------------------------------------
-" clipboard
-" --------------------------------------------------------------------
-set clipboard+=unnamed
-
-" --------------------------------------------------------------------
-" mouse
-" --------------------------------------------------------------------
-set mouse=a
-
-" --------------------------------------------------------------------
-" window
-" --------------------------------------------------------------------
+" window {{{
 set nonumber
 set title
 set showcmd
@@ -127,21 +111,20 @@ set wrap
 set noimdisable
 set iminsert=0
 set imsearch=-1
-" 記号表示でカーソル位置がずれないようにする.
-if exists('&ambiwidth')
+if has('ambiwidth')
   set ambiwidth=double
 endif
-" Windowsのパス区切りに/を使えるようにする.
 set shellslash
 set cmdheight=2
 set laststatus=2
 set ruler
 set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %l/%L
+set mouse=a
+syntax on
+" }}}
 
-" --------------------------------------------------------------------
-" 全角スペースの表示
+" 全角スペースの表示 {{{
 " http://inari.hatenablog.com/entry/2014/05/05/231307
-" --------------------------------------------------------------------
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 endfunction
@@ -154,10 +137,9 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
+" }}}
 
-" --------------------------------------------------------------------
-" ノーマルモードに戻る際にIMEをoffにする
-" --------------------------------------------------------------------
+" ノーマルモードに戻る際にIMEをoffにする {{{
 if has('mac')
   let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
 endif
@@ -170,22 +152,8 @@ if exists('g:imeoff')
 "    autocmd InsertLeave * :call system(g:imeoff)
   augroup END
 endif
+" }}}
 
-" --------------------------------------------------------------------
-" syntax highlighting
-" --------------------------------------------------------------------
-syntax on
-
-" --------------------------------------------------------------------
-" key mapping
-" --------------------------------------------------------------------
-"nnoremap ; :
-"vnoremap ; :
-
-" --------------------------------------------------------------------
-" others
-" --------------------------------------------------------------------
+" others {{{
 runtime! ../.vimrc.d/*.vim
-
-" --------------------------------------------------------------------
-" vim: set ts=2 sts=2 sw=2 tw=0 et:
+" }}}
