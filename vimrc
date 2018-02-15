@@ -42,15 +42,15 @@ nnoremap <silent><C-\> :NERDTreeToggle<CR>
 
 " netrw
 " netrwは常にtree view
-let g:netrw_liststyle = 3
+"let g:netrw_liststyle = 3
 " 'v'でファイルを開くときは右側に開く.
-let g:netrw_altv = 1
+"let g:netrw_altv = 1
 " 'o'でファイルを開くときは下側に開く.
-let g:netrw_alto = 1
+"let g:netrw_alto = 1
 
 " previm
-let g:previm_open_cmd = ''
-let g:previm_show_header = 0
+"let g:previm_open_cmd = ''
+"let g:previm_show_header = 0
 " }}}
 
 " file encoding {{{
@@ -108,10 +108,7 @@ set showmode
 set showmatch
 set matchtime=1
 set wrap
-set noimdisable
-set iminsert=0
-set imsearch=-1
-if has('ambiwidth')
+if exists('&ambiwidth')
   set ambiwidth=double
 endif
 set shellslash
@@ -140,7 +137,7 @@ endif
 " }}}
 
 " ノーマルモードに戻る際にIMEをoffにする {{{
-if has('mac')
+if has('mac') && !has('gui_running')
   let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
 endif
 
@@ -149,7 +146,7 @@ if exists('g:imeoff')
   augroup MyIMEGroup
     autocmd!
     autocmd VimEnter * :call system(g:imeoff) | :redraw!
-"    autocmd InsertLeave * :call system(g:imeoff)
+    autocmd InsertLeave * :call system(g:imeoff)
   augroup END
 endif
 " }}}

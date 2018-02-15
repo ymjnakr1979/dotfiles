@@ -52,7 +52,7 @@ set background=light
 
 " IME {{{
 if has('multi_byte_ime') || has('xim')
-  if has('gui_macvim') && has('kaoriya')
+  if has('kaoriya')
     " モード切替時にIMの状態を復元しない.
     set imdisableactivate
   endif
