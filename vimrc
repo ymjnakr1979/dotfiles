@@ -101,7 +101,7 @@ set wildmode=list:longest,full
 " }}}
 
 " window {{{
-set nonumber
+set number
 set title
 set showcmd
 set showmode
