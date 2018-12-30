@@ -22,6 +22,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'osyo-manga/vim-over'
+Plug 'vim-jp/vimdoc-ja'
 
 " NERDTree
 "Plug 'scrooloose/nerdtree'

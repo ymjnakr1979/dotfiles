@@ -30,7 +30,7 @@ SetSettingsByPlatform() {
       source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
     fi
   #elif [ "$(expr substr ${platform_name} 1 10)" == 'MINGW32_NT' ] ; then
-  #  # echo 'loading "MINGW32_NT" settings ...'
+    # echo 'loading "MINGW32_NT" settings ...'
   elif [ "$(expr substr ${platform_name} 1 10)" == 'MINGW64_NT' ] ; then
     # echo 'loading "MINGW64_NT" settings ...'
     GIT_PS1_SHOWDIRTYSTATE=true
