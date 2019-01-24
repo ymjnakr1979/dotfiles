@@ -12,6 +12,8 @@ mkdir -p "${backup_dir}"
 mv "${HOME}/.bash_profile" "${backup_dir}/_bash_profile_bak"
 mv "${HOME}/.bashrc" "${backup_dir}/_bashrc_bak"
 mv "${HOME}/.vim" "${backup_dir}/_vim_bak"
+mv "${HOME}/.vimrc" "${backup_dir}/_vimrc"
+mv "${HOME}/.gvimrc" "${backup_dir}/_gvimrc"
 
 # copy dotfiles
 mkdir -p "${HOME}/.vim/swap"
@@ -20,11 +22,10 @@ mkdir -p "${HOME}/.vim/undo"
 mkdir -p "${HOME}/.vim/plugged"
 mkdir -p "${HOME}/.vim/autoload"
 
-# create symbolic link
-ln -fs "${script_dir}/bash_profile" "${HOME}/.bash_profile"
-ln -fs "${script_dir}/bashrc" "${HOME}/.bashrc"
-ln -fs "${script_dir}/vimrc" "${HOME}/.vimrc"
-ln -fs "${script_dir}/gvimrc" "${HOME}/.gvimrc"
+cp "${script_dir}/bash_profile" "${HOME}/.bash_profile"
+cp "${script_dir}/bashrc" "${HOME}/.bashrc"
+cp "${script_dir}/vimrc" "${HOME}/.vimrc"
+cp "${script_dir}/gvimrc" "${HOME}/.gvimrc"
 
 # install vim-plug
 curl -fLo "${HOME}/.vim/autoload/plug.vim" --create-dirs \
