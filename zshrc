@@ -6,9 +6,14 @@ $ '
 
 if [ -e /usr/local/share/zsh-completions ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
-  autoload -U compinit
-  compinit -u
 fi
+
+if [ -e $(brew --prefix)/share/zsh/site-functions ]; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
+autoload -U compinit
+compinit -u
 
 # alias
 #
