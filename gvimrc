@@ -45,10 +45,14 @@ elseif has('mac')
 endif
 " }
 
+" color scheme {
+"colorscheme default
+colorscheme tender
+let g:lightline = { 'colorscheme': 'tender' }
+" }
 
 " macOS Light / Darkモードの背景色設定 {
 " .vimrc / .gvimrc それぞれに設定する必要あり.
-colorscheme default
 if has('mac')
   if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
     set background=dark

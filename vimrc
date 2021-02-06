@@ -23,6 +23,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'osyo-manga/vim-over'
 Plug 'vim-jp/vimdoc-ja'
+Plug 'jacoborus/tender.vim'
 
 " NERDTree
 "Plug 'scrooloose/nerdtree'
@@ -122,7 +123,17 @@ set laststatus=2
 set ruler
 set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %l/%L
 set mouse=a
+" }
+
+" color scheme {
 syntax on
+set t_Co=256
+"if has('termguicolors')
+"  set termguicolors
+"endif
+"colorscheme default
+colorscheme tender
+let g:lightline = { 'colorscheme': 'tender' }
 " }
 
 " 全角スペースの表示 {
@@ -158,7 +169,6 @@ endif
 
 " macOS Light / Darkモードの背景色設定 {
 " .vimrc / .gvimrc それぞれに設定する必要あり.
-colorscheme default
 if has('mac')
   if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
     set background=dark
