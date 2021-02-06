@@ -23,7 +23,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'osyo-manga/vim-over'
 Plug 'vim-jp/vimdoc-ja'
-Plug 'jacoborus/tender.vim'
 
 " NERDTree
 "Plug 'scrooloose/nerdtree'
@@ -131,9 +130,7 @@ set t_Co=256
 "if has('termguicolors')
 "  set termguicolors
 "endif
-"colorscheme default
-colorscheme tender
-let g:lightline = { 'colorscheme': 'tender' }
+colorscheme default
 " }
 
 " 全角スペースの表示 {

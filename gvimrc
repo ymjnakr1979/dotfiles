@@ -46,9 +46,7 @@ endif
 " }
 
 " color scheme {
-"colorscheme default
-colorscheme tender
-let g:lightline = { 'colorscheme': 'tender' }
+colorscheme default
 " }
 
 " macOS Light / Darkモードの背景色設定 {
