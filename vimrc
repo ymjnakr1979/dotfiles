@@ -124,9 +124,19 @@ set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ 
 set mouse=a
 " }
 
+" macOS Light / Darkモードの背景色設定 {
+" .vimrc / .gvimrc それぞれに設定する必要あり.
+if has('mac')
+  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+    set background=dark
+  else
+    set background=light
+  endif
+endif
+" }
+
 " color scheme {
-syntax on
-set t_Co=256
+syntax enable
 "if has('termguicolors')
 "  set termguicolors
 "endif
@@ -161,17 +171,6 @@ if exists('g:imeoff')
     autocmd VimEnter * :call system(g:imeoff) | :redraw!
     autocmd InsertLeave * :call system(g:imeoff)
   augroup END
-endif
-" }
-
-" macOS Light / Darkモードの背景色設定 {
-" .vimrc / .gvimrc それぞれに設定する必要あり.
-if has('mac')
-  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-    set background=dark
-  else
-    set background=light
-  endif
 endif
 " }
 
