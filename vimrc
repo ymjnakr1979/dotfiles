@@ -124,6 +124,14 @@ set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ 
 set mouse=a
 " }
 
+" color scheme {
+syntax enable
+"if has('termguicolors')
+"  set termguicolors
+"endif
+colorscheme default
+" }
+
 " macOS Light / Darkモードの背景色設定 {
 " .vimrc / .gvimrc それぞれに設定する必要あり.
 if has('mac')
@@ -132,15 +140,9 @@ if has('mac')
   else
     set background=light
   endif
+else
+  set background=dark
 endif
-" }
-
-" color scheme {
-syntax enable
-"if has('termguicolors')
-"  set termguicolors
-"endif
-colorscheme default
 " }
 
 " 全角スペースの表示 {

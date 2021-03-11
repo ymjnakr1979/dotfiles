@@ -57,6 +57,8 @@ if has('mac')
   else
     set background=light
   endif
+else
+  set background=light
 endif
 " }
 
