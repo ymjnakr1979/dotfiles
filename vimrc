@@ -41,9 +41,9 @@ packadd! matchit
 
 " plugin setting {
 " NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowHidden = 1
-nnoremap <silent><C-\> :NERDTreeToggle<CR>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"let NERDTreeShowHidden = 1
+"nnoremap <silent><C-\> :NERDTreeToggle<CR>
 
 " netrw
 " netrwは常にtree view
@@ -134,15 +134,15 @@ colorscheme default
 
 " macOS Light / Darkモードの背景色設定 {
 " .vimrc / .gvimrc それぞれに設定する必要あり.
-if has('mac')
-  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-    set background=dark
-  else
-    set background=light
-  endif
-else
-  set background=dark
-endif
+"if has('mac')
+"  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+"    set background=dark
+"  else
+"    set background=light
+"  endif
+"else
+"  set background=dark
+"endif
 " }
 
 " 全角スペースの表示 {
@@ -165,15 +165,15 @@ endif
 "if has('mac') && !has('gui_running')
 "  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
 "endif
-
-if exists('g:imeoff')
-  set ttimeoutlen=1
-  augroup MyIMEGroup
-    autocmd!
-    autocmd VimEnter * :call system(g:imeoff) | :redraw!
-    autocmd InsertLeave * :call system(g:imeoff)
-  augroup END
-endif
+"
+"if exists('g:imeoff')
+"  set ttimeoutlen=1
+"  augroup MyIMEGroup
+"    autocmd!
+"    autocmd VimEnter * :call system(g:imeoff) | :redraw!
+"    autocmd InsertLeave * :call system(g:imeoff)
+"  augroup END
+"endif
 " }
 
 " others {
