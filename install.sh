@@ -14,6 +14,8 @@ mv "${HOME}/.bashrc" "${backup_dir}/_bashrc_bak"
 mv "${HOME}/.vim" "${backup_dir}/_vim_bak"
 mv "${HOME}/.vimrc" "${backup_dir}/_vimrc"
 mv "${HOME}/.gvimrc" "${backup_dir}/_gvimrc"
+mv "${HOME}/.zshenv" "${backup_dir}/_zshenv"
+mv "${HOME}/.zshrc" "${backup_dir}/_zshrc"
 
 # copy dotfiles
 mkdir -p "${HOME}/.vim/swap"
@@ -22,6 +24,8 @@ mkdir -p "${HOME}/.vim/undo"
 mkdir -p "${HOME}/.vim/plugged"
 mkdir -p "${HOME}/.vim/autoload"
 
+cp "${script_dir}/zshenv" "${HOME}/.zshenv"
+cp "${script_dir}/zshrc" "${HOME}/.zshrc"
 cp "${script_dir}/bash_profile" "${HOME}/.bash_profile"
 cp "${script_dir}/bashrc" "${HOME}/.bashrc"
 cp "${script_dir}/vimrc" "${HOME}/.vimrc"
