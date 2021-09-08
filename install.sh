@@ -37,3 +37,6 @@ curl -fLo "${HOME}/.vim/autoload/plug.vim" --create-dirs \
 
 # start vim and install plugins
 vim -c PlugInstall -c q -c q
+
+# finish
+echo "Run 'ln -s $(brew --prefix macvim)/MacVim.app /Applications'"

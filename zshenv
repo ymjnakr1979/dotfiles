@@ -4,8 +4,6 @@
 #
 export TERM=xterm-256color
 
-export PATH=/usr/local/bin:$PATH
-
 if [ -x '/Applications/MacVim.app/Contents/MacOS/Vim' ] ; then
   export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 fi
