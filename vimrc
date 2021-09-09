@@ -176,10 +176,6 @@ endif
 "endif
 " }
 
-" help {
-set helplang=ja,en
-" }
-
 " others {
 runtime! ../.vimrc.d/*.vim
 " }
