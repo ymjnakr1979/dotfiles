@@ -23,14 +23,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'osyo-manga/vim-over'
 Plug 'vim-jp/vimdoc-ja'
-
-" NERDTree
-"Plug 'scrooloose/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" markdown
-"Plug 'kannokanno/previm'
-"Plug 'tyru/open-browser.vim'
+Plug 'cocopon/iceberg.vim'
 
 call plug#end()
 " }
@@ -39,23 +32,10 @@ call plug#end()
 packadd! matchit
 " }
 
-" plugin setting {
-" NERDTree
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"let NERDTreeShowHidden = 1
-"nnoremap <silent><C-\> :NERDTreeToggle<CR>
-
-" netrw
-" netrwは常にtree view
-"let g:netrw_liststyle = 3
-" 'v'でファイルを開くときは右側に開く.
-"let g:netrw_altv = 1
-" 'o'でファイルを開くときは下側に開く.
-"let g:netrw_alto = 1
-
-" previm
-"let g:previm_open_cmd = ''
-"let g:previm_show_header = 0
+" plugin settings {
+let g:lightline = {
+      \ 'colorscheme': 'iceberg',
+      \ }
 " }
 
 " file encoding {
@@ -126,23 +106,9 @@ set mouse=a
 
 " color scheme {
 syntax enable
-"if has('termguicolors')
-"  set termguicolors
-"endif
-colorscheme default
-" }
-
-" macOS Light / Darkモードの背景色設定 {
-" .vimrc / .gvimrc それぞれに設定する必要あり.
-"if has('mac')
-"  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-"    set background=dark
-"  else
-"    set background=light
-"  endif
-"else
-"  set background=dark
-"endif
+colorscheme iceberg
+set background=dark
+"colorscheme default
 " }
 
 " 全角スペースの表示 {
