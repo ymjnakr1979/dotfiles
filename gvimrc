@@ -46,7 +46,8 @@ endif
 " }
 
 " color scheme {
-colorscheme default
+"colorscheme default
+colorscheme iceberg
 " }
 
 " macOS Light / Darkモードの背景色設定 {
