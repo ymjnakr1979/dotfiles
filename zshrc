@@ -1,6 +1,8 @@
 # vim: set ts=2 sts=2 sw=2 tw=0 et:
 #
 
+export PATH=$HOME/.rbenv/shims:$PATH
+
 if [ -e /usr/local/share/zsh-completions ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
 fi
