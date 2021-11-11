@@ -46,21 +46,22 @@ endif
 " }
 
 " color scheme {
-"colorscheme default
-colorscheme iceberg
+colorscheme default
+"colorscheme iceberg
+set background=light
 " }
 
 " macOS Light / Darkモードの背景色設定 {
 " .vimrc / .gvimrc それぞれに設定する必要あり.
-if has('mac')
-  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-    set background=dark
-  else
-    set background=light
-  endif
-else
-  set background=light
-endif
+"if has('mac')
+"  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+"    set background=dark
+"  else
+"    set background=light
+"  endif
+"else
+"  set background=light
+"endif
 " }
 
 " IME {

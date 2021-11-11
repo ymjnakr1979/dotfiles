@@ -23,7 +23,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'osyo-manga/vim-over'
 Plug 'vim-jp/vimdoc-ja'
-Plug 'cocopon/iceberg.vim'
+"Plug 'cocopon/iceberg.vim'
 
 call plug#end()
 " }
@@ -33,9 +33,9 @@ packadd! matchit
 " }
 
 " plugin settings {
-let g:lightline = {
-      \ 'colorscheme': 'iceberg',
-      \ }
+"let g:lightline = {
+"      \ 'colorscheme': 'iceberg',
+"      \ }
 " }
 
 " file encoding {
@@ -106,9 +106,12 @@ set mouse=a
 
 " color scheme {
 syntax enable
-colorscheme iceberg
+if !has('mac')
+  set termguicolors
+endif
+"colorscheme iceberg
+colorscheme default
 set background=dark
-"colorscheme default
 " }
 
 " 全角スペースの表示 {
