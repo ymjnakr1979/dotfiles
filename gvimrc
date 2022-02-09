@@ -46,35 +46,6 @@ endif
 " }
 
 " color scheme {
-colorscheme default
-"colorscheme iceberg
-set background=light
-" }
-
-" macOS Light / Darkモードの背景色設定 {
-" .vimrc / .gvimrc それぞれに設定する必要あり.
-"if has('mac')
-"  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-"    set background=dark
-"  else
-"    set background=light
-"  endif
-"else
-"  set background=light
-"endif
-" }
-
-" IME {
-if has('multi_byte_ime') || has('xim')
-  if has('kaoriya') && has('mac')
-    " モード切替時にIMの状態を復元しない.
-    set imdisableactivate
-  endif
-
-  if has('win32') || has('mac')
-    " IMの状態に合わせてカーソル色を変更する.
-    highlight Cursor guifg=NONE guibg=Green
-    highlight CursorIM guifg=NONE guibg=Purple
-  endif
-endif
+colorscheme tender
+set background=dark
 " }

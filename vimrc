@@ -23,19 +23,14 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'osyo-manga/vim-over'
 Plug 'vim-jp/vimdoc-ja'
-"Plug 'cocopon/iceberg.vim'
+Plug 'thinca/vim-zenspace'
+Plug 'jacoborus/tender.vim'
 
 call plug#end()
 " }
 
 " other plugin {
 packadd! matchit
-" }
-
-" plugin settings {
-"let g:lightline = {
-"      \ 'colorscheme': 'iceberg',
-"      \ }
 " }
 
 " file encoding {
@@ -109,40 +104,8 @@ syntax enable
 if !has('mac')
   set termguicolors
 endif
-"colorscheme iceberg
-colorscheme default
+colorscheme tender
 set background=dark
-" }
-
-" 全角スペースの表示 {
-" http://inari.hatenablog.com/entry/2014/05/05/231307
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-endfunction
-
-if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
-  augroup END
-  call ZenkakuSpace()
-endif
-" }
-
-" ノーマルモードに戻る際にIMEをoffにする {
-"if has('mac') && !has('gui_running')
-"  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
-"endif
-"
-"if exists('g:imeoff')
-"  set ttimeoutlen=1
-"  augroup MyIMEGroup
-"    autocmd!
-"    autocmd VimEnter * :call system(g:imeoff) | :redraw!
-"    autocmd InsertLeave * :call system(g:imeoff)
-"  augroup END
-"endif
 " }
 
 " others {
