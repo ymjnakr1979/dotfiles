@@ -18,19 +18,18 @@ set undodir=$MY_RTDIR/undo
 " vim-plug {
 silent! call plug#begin(expand('$MY_RTDIR/plugged'))
 
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'osyo-manga/vim-over'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'thinca/vim-zenspace'
 Plug 'jacoborus/tender.vim'
+Plug 'https://github.com/adelarsq/vim-matchit'
 
 call plug#end()
-" }
-
-" other plugin {
-packadd! matchit
 " }
 
 " file encoding {
@@ -94,16 +93,12 @@ endif
 set shellslash
 set cmdheight=2
 set laststatus=2
-set ruler
-set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %l/%L
 set mouse=a
 " }
 
 " color scheme {
 syntax enable
-if !has('mac')
-  set termguicolors
-endif
+set termguicolors
 colorscheme tender
 set background=dark
 " }
