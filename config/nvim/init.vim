@@ -40,7 +40,7 @@ set showmatch
 set matchtime=1
 set ambiwidth=double
 set cmdheight=2
-set mouse=a
+"set mouse=a
 " }
 
 " color scheme {

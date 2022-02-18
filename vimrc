@@ -93,6 +93,8 @@ endif
 set shellslash
 set cmdheight=2
 set laststatus=2
+"set ruler
+"set statusline=%<%f\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%4v\ %l/%L
 set mouse=a
 " }
 
