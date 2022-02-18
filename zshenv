@@ -4,6 +4,6 @@
 #
 export TERM=xterm-256color
 
-if [ -x '/Applications/MacVim.app/Contents/MacOS/Vim' ] ; then
-  export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+if [ -x '/usr/local/bin/nvim' ] ; then
+  export EDITOR='/usr/local/bin/nvim'
 fi
