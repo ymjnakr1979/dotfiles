@@ -2,4 +2,5 @@
 .DS_Store
 update-notifier-npm.json
 config/karabiner/automatic_backups
+config/nvim
 Brewfile.lock.json
