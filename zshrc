@@ -22,3 +22,7 @@ prompt pure
 if [ -x '/usr/local/bin/nvim' ]; then
   alias vi=nvim
 fi
+
+if [ -x '/opt/homebrew/bin/nvim' ]; then
+  alias vi=nvim
+fi

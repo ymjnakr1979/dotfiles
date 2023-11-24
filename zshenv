@@ -7,3 +7,7 @@ export TERM=xterm-256color
 if [ -x '/usr/local/bin/nvim' ] ; then
   export EDITOR='/usr/local/bin/nvim'
 fi
+
+if [ -x '/opt/homebrew/bin/nvim' ]; then
+  export EDITOR='/opt/homebrew/bin/nvim'
+fi
